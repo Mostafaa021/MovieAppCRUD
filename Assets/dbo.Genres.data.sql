@@ -1,0 +1,16 @@
+﻿SET IDENTITY_INSERT [dbo].[Genres] ON
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (1, N'Action')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (2, N'Drama')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (3, N'Crime')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (4, N'Biography')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (5, N'Adventure')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (6, N'Western')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (7, N'Horror')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (8, N'Romance')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (9, N'Comedy')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (10, N'War')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (11, N'Fantasy')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (12, N'Historical')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (13, N'Science fiction')
+INSERT INTO [dbo].[Genres] ([Id], [Name]) VALUES (14, N'Thriller')
+SET IDENTITY_INSERT [dbo].[Genres] OFF

@@ -1,0 +1,75 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = Model.Title;
+}
+<div class="row justify-content-between">
+    <div class="col-md-3">
+        <img src="data:image/*;base64,@(Convert.ToBase64String(Model.Poster)) " class="img-thumbnail" alt="@Model.Title" />
+
+    </div>
+    <div class="col-md-7">
+        <div>
+            <h3>@Model.Title</h3>
+            <span>
+                <i class="bi bi-star-fill text-warning">  </i>
+                <span class="text-muted" >@Model.Rate.ToString("0.0")</span>
+            </span>
+        </div>
+        <span class="text-muted">
+            <i class="bi bi-calendar-week"></i>
+            @Model.Year
+        </span>
+        <span class="text-muted">
+            <i class="bi bi-film"></i>
+            @Model.Genre.Name
+        </span>
+        <p>@Model.StoryLine</p>
+        <a href="javascript:;" data-id="@Model.Id" class="btn btn-danger js-Delete">
+            <i class="bi bi-trash"></i>
+            Delete
+        </a>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $('.js-Delete').click(function (){
+              var button = $(this);
+              
+                bootbox.confirm({
+                    message: 'Are You Sure you want to Delete this Movie?',
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-danger'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-outline-primary'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: '/Movie/delete/' + button.data('id'),
+                                success: function () {
+                                    toastr.success('Movie Deleted Successfully');
+                                    window.location.href = 'https://localhost:44390/Movie';
+                                },
+                                Error: function () {
+                                    toastr.error('Something Wrong Happened');
+                                }
+                            });
+                        }
+                    }
+                });
+              
+            });
+        });
+    </script>
+
+}
+}
